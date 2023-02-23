@@ -43,7 +43,7 @@ if __name__ == 'main':
 
 	zoom_cams = []
 	for i in range(len(intermediate_layers)):
-		zoom_cams.append(activations[len(intermediate_layers)-i].cpu() * weights[i].cpu())
+		zoom_cams.append(activations[len(intermediate_layers)-i-1].cpu() * weights[i].cpu())
 		zoom_cams[i] = torch.sum(zoom_cams[i], dim = (0,1), keepdim = True)
 
 	for i in range(len(intermediate_layers)):
